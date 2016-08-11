@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>EasyBudget</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ </head>
+
+  <body>
+
+    <div ng-app="easyBudget">
+      <section class="budget-view" ng-controller="budgetViewCtrl">
+        <p>{{message}}</p>
+        <div id="budget-progress-bar">
+          <div class="progress"
+        </div>
+        <div id="current-budget">
+        </div>
+        <h1 id="current-balance">{{balance}}</h1>
+      </section> <!-- end budget view -->
+      <section class="budget-dashboard" ng-controller="budgetDashboardCtrl">
+        <div id="budget-overview">
+          <h4>Highest Expenditure: {{highestExpenditure}}</h4>
+        </div>
+        <div id="deposits">
+          <li ng-repeat="deposit in deposits">
+            {{deposit.name + ':' + deposit.amount + ' ' + deposit.date}}
+          </li>
+        </div>
+        <div id="expenditures">
+          <li ng-repeat="expend in expenditures">
+            {{expend.name + ':' + expend.amount + ' ' + expend.date}}
+          </li>
+        </div>
+        <div class="form-group" id="deposits-input">
+          Deposit Amount: <input type="text" ng-model="userDeposits">
+          <br>
+          <button id="submit-deposit">Submit</button>
+        </div>
+        <div class="form-group" id="expenditures-input">
+          Expenditure Amount: <input type="text" ng-model="userExpenditures">
+          <br>
+          <button id="submit-expenditure">Submit</button>
+        </div>
+      </section> <!-- end budget dashboard -->
+    </div> <!-- end easyBudget app-->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+
+</html>
